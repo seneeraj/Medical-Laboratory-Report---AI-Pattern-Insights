@@ -1,0 +1,86 @@
+synonym,standard
+FBS,Glucose
+Fasting Glucose,Glucose
+Blood Sugar Fasting,Glucose
+HbA1C,HbA1c
+Glycated Hemoglobin,HbA1c
+Total Chol,Total Cholesterol
+Bad Cholesterol,LDL
+Good Cholesterol,HDL
+Triglyceride,Triglycerides
+Serum Creatinine,Creatinine
+Blood Urea,Urea/BUN
+BUN,Urea/BUN
+SGPT,ALT
+SGOT,AST
+Total Bilirubin,Bilirubin
+Hb,Hemoglobin
+White Blood Cells,WBC
+Platelet Count,Platelets
+Red Blood Cells,RBC
+HCT,Hematocrit
+hsCRP,CRP
+Vit D,Vitamin D
+Vit B12,Vitamin B12
+Thyroid Stimulating Hormone,TSH
+FBS,Glucose
+Fasting Glucose,Glucose
+Blood Sugar Fasting,Glucose
+Fasting Blood Sugar,Glucose
+Glucose Fasting,Glucose
+HbA1C,HbA1c
+HbA1c,HbA1c
+A1C,HbA1c
+Glycated Hemoglobin,HbA1c
+Glycosylated Hemoglobin,HbA1c
+Total Chol,Total Cholesterol
+Cholesterol Total,Total Cholesterol
+Total Serum Cholesterol,Total Cholesterol
+Bad Cholesterol,LDL
+LDL Cholesterol,LDL
+LDL-C,LDL
+Good Cholesterol,HDL
+HDL Cholesterol,HDL
+HDL-C,HDL
+Triglyceride,Triglycerides
+Triglycerides Serum,Triglycerides
+Serum Creatinine,Creatinine
+Creatinine Serum,Creatinine
+Blood Urea,Urea/BUN
+BUN,Urea/BUN
+Urea,Urea/BUN
+SGPT,ALT
+ALT,ALT
+Alanine Aminotransferase,ALT
+SGOT,AST
+AST,AST
+Aspartate Aminotransferase,AST
+Total Bilirubin,Bilirubin
+Bilirubin Total,Bilirubin
+Serum Bilirubin,Bilirubin
+Hb,Hemoglobin
+Hemoglobin,Hemoglobin
+White Blood Cells,WBC
+WBC Count,WBC
+Platelet Count,Platelets
+Platelet,Platelets
+Red Blood Cells,RBC
+RBC Count,RBC
+HCT,Hematocrit
+Hematocrit,Hematocrit
+hsCRP,CRP
+hs-CRP,CRP
+High Sensitivity CRP,CRP
+C Reactive Protein,CRP
+CRP,CRP
+Vit D,Vitamin D
+Vitamin D3,Vitamin D
+25-OH Vitamin D,Vitamin D
+25 OH Vitamin D,Vitamin D
+Vitamin D Total,Vitamin D
+Vit B12,Vitamin B12
+Vitamin B12,Vitamin B12
+Cobalamin,Vitamin B12
+Thyroid Stimulating Hormone,TSH
+TSH,TSH
+Thyrotropin,TSH

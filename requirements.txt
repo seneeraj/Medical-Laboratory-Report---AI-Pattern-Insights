@@ -1,0 +1,10 @@
+streamlit
+pandas
+numpy
+plotly
+openpyxl
+pdfplumber
+camelot-py
+ghostscript
+opencv-python
+networkx

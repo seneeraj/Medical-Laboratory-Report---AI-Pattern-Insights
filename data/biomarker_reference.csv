@@ -1,0 +1,23 @@
+marker,min,max,unit
+Glucose,70.0,100.0,mg/dL
+HbA1c,4.0,5.6,%
+Total Cholesterol,125.0,200.0,mg/dL
+LDL,0.0,130.0,mg/dL
+HDL,40.0,100.0,mg/dL
+Triglycerides,0.0,150.0,mg/dL
+Creatinine,0.6,1.2,mg/dL
+Urea/BUN,7.0,20.0,mg/dL
+eGFR,90.0,120.0,mL/min
+ALT,7.0,40.0,U/L
+AST,10.0,40.0,U/L
+Bilirubin,0.1,1.2,mg/dL
+Hemoglobin,12.0,17.5,g/dL
+WBC,4000.0,11000.0,cells/uL
+Platelets,150000.0,450000.0,cells/uL
+RBC,4.2,6.1,million/uL
+Hematocrit,36.0,50.0,%
+CRP,0.0,3.0,mg/L
+Vitamin D,30.0,100.0,ng/mL
+Vitamin B12,200.0,900.0,pg/mL
+Ferritin,30.0,400.0,ng/mL
+TSH,0.4,4.0,uIU/mL

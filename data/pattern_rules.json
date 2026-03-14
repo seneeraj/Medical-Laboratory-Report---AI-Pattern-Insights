@@ -1,0 +1,61 @@
+[
+{
+"pattern": "severe_diabetes",
+"description": "HbA1c indicates uncontrolled diabetes.",
+"conditions": { "HbA1c": { ">": 6.5 } }
+},
+
+{
+"pattern": "insulin_resistance",
+"description": "Triglyceride/HDL ratio suggests insulin resistance.",
+"conditions": { "TG_HDL_Ratio": { ">": 3 } }
+},
+
+{
+"pattern": "cardiovascular_risk",
+"description": "LDL elevation suggests cardiovascular risk.",
+"conditions": { "LDL": { ">": 130 } }
+},
+
+{
+"pattern": "kidney_stress",
+"description": "Reduced filtration rate detected.",
+"conditions": { "eGFR": { "<": 90 } }
+},
+
+{
+"pattern": "vitamin_d_deficiency",
+"description": "Vitamin D level indicates deficiency.",
+"conditions": { "Vitamin D": { "<": 20 } }
+},
+
+{
+"pattern": "inflammation_risk",
+"description": "Elevated CRP indicates systemic inflammation.",
+"conditions": { "CRP": { ">": 1 } }
+},
+
+{
+"pattern": "thyroid_dysfunction",
+"description": "TSH above normal range.",
+"conditions": { "TSH": { ">": 4 } }
+},
+
+{
+"pattern": "anemia_risk",
+"description": "Low hemoglobin detected.",
+"conditions": { "Hemoglobin": { "<": 12 } }
+},
+
+{
+"pattern": "liver_stress",
+"description": "Elevated ALT enzyme.",
+"conditions": { "ALT": { ">": 40 } }
+},
+
+{
+"pattern": "iron_deficiency",
+"description": "Ferritin level indicates iron deficiency.",
+"conditions": { "Ferritin": { "<": 30 } }
+}
+]
