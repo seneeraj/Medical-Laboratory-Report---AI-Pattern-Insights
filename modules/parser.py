@@ -38,8 +38,11 @@ def parse_csv(file):
 
         try:
             marker = str(row[0]).strip()
-            value = float(row[1])
-            lab_data[marker] = value
+            value = extract_numeric(row[1])
+
+            if marker and value is not None:
+                lab_data[marker] = value
+
         except:
             continue
 
@@ -60,8 +63,11 @@ def parse_excel(file):
 
         try:
             marker = str(row[0]).strip()
-            value = float(row[1])
-            lab_data[marker] = value
+            value = extract_numeric(row[1])
+
+            if marker and value is not None:
+                lab_data[marker] = value
+
         except:
             continue
 
@@ -69,7 +75,7 @@ def parse_excel(file):
 
 
 # ----------------------------------------------------
-# HELPER: CLEAN MARKER NAME
+# CLEAN MARKER NAME
 # ----------------------------------------------------
 
 def clean_marker(marker):
@@ -79,25 +85,15 @@ def clean_marker(marker):
 
     marker = str(marker)
 
-    # remove newline characters
     marker = marker.replace("\n", " ")
-
-    # remove extra spaces
+    marker = re.sub(r"\(.*?\)", "", marker)
     marker = re.sub(r"\s+", " ", marker)
 
-    # remove method names in brackets
-    marker = re.sub(r"\(.*?\)", "", marker)
-
-    # remove trailing method descriptions
-    marker = marker.split("  ")[0]
-
-    marker = marker.strip()
-
-    return marker
+    return marker.strip()
 
 
 # ----------------------------------------------------
-# HELPER: INVALID ROW FILTER
+# INVALID ROW FILTER
 # ----------------------------------------------------
 
 def is_valid_marker(marker):
@@ -105,10 +101,7 @@ def is_valid_marker(marker):
     if marker is None:
         return False
 
-    marker = str(marker).strip()
-
-    if marker == "":
-        return False
+    marker = marker.lower()
 
     invalid_keywords = [
         "reference",
@@ -123,20 +116,47 @@ def is_valid_marker(marker):
         "goal",
         "status",
         "table",
-        "range"
+        "range",
+        "ratio",
+        "index",
+        "calculated",
+        "method"
     ]
 
-    marker_lower = marker.lower()
-
     for word in invalid_keywords:
-        if word in marker_lower:
+        if word in marker:
             return False
 
-    # reject numeric-only markers
     if re.fullmatch(r"\d+\.?\d*", marker):
         return False
 
     return True
+
+
+# ----------------------------------------------------
+# EXTRACT NUMERIC VALUE
+# ----------------------------------------------------
+
+def extract_numeric(value):
+
+    if value is None:
+        return None
+
+    value = str(value)
+
+    value = value.replace("H*", "")
+    value = value.replace("L*", "")
+    value = value.replace("*", "")
+
+    numbers = re.findall(r"\d+\.\d+|\d+", value)
+
+    if numbers:
+        try:
+            return float(numbers[0])
+        except:
+            return None
+
+    return None
 
 
 # ----------------------------------------------------
@@ -160,11 +180,7 @@ def parse_pdf(file):
 
                 for row in table:
 
-                    # safety checks
-                    if not row:
-                        continue
-
-                    if len(row) < 2:
+                    if not row or len(row) < 2:
                         continue
 
                     raw_marker = row[0]
@@ -174,52 +190,15 @@ def parse_pdf(file):
                         continue
 
                     marker = clean_marker(raw_marker)
-                    value = str(raw_value).strip()
 
-                    if marker is None or marker == "":
+                    if not is_valid_marker(marker):
                         continue
 
-                    # skip obvious non-test rows
-                    invalid_words = [
-                        "reference",
-                        "interpretation",
-                        "comment",
-                        "note",
-                        "range",
-                        "risk",
-                        "status",
-                        "category",
-                        "optimal",
-                        "borderline",
-                        "therapy",
-                        "goal"
-                    ]
+                    numeric_value = extract_numeric(raw_value)
 
-                    marker_lower = marker.lower()
-
-                    if any(word in marker_lower for word in invalid_words):
+                    if numeric_value is None:
                         continue
 
-                    # remove flags like H*, L*
-                    value = value.replace("H*", "")
-                    value = value.replace("L*", "")
-                    value = value.replace("*", "")
-
-                    # extract numeric value
-                    match = re.search(r"\d+\.?\d*", value)
-
-                    if not match:
-                        continue
-
-                    try:
-                        numeric_value = float(match.group())
-                    except:
-                        continue
-
-                    # remove duplicate spaces
-                    marker = re.sub(r"\s+", " ", marker).strip()
-
-                    # store biomarker
                     lab_data[marker] = numeric_value
 
     return lab_data
